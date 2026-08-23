@@ -23,7 +23,8 @@ export default function UserProfile({
 
       <h4>{userName}</h4>
       <p>{userDescription}</p>
-      {openForWork ? <p>В поиске работы</p> : <p>Не в поиске работы</p>}
+      {typeof openForWork === "boolean" &&
+        (openForWork ? <p>В поиске работы</p> : <p>Не в поиске работы</p>)}
     </div>
   );
 }
