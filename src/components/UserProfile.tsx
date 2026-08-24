@@ -15,16 +15,15 @@ export default function UserProfile({
 }: UserProfileType) {
   return (
     <div className="description">
-      {protoUrl ? (
-        <img className="avatar" src={protoUrl} />
-      ) : (
-        <img className="photo--default" src={defaultUserPhoto} />
-      )}
-
+      <img
+        className={protoUrl ? "avatar" : "photo--default"}
+        src={protoUrl || defaultUserPhoto}
+      />
       <h4>{userName}</h4>
       <p>{userDescription}</p>
-      {typeof openForWork === "boolean" &&
-        (openForWork ? <p>В поиске работы</p> : <p>Не в поиске работы</p>)}
+      {typeof openForWork === "boolean" && (
+        <p>{openForWork ? "В поиске работы " : "Не в поиске работы"}</p>
+      )}
     </div>
   );
 }
